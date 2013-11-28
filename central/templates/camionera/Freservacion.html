@@ -1,0 +1,23 @@
+{% extends 'home/base.html'%}
+{%block titulo%}Reservaciones{%endblock%}
+{%block contenido%}
+
+
+	<h1>Reservaciones</h1>
+	<div class="row featurette">
+    	 <div class="col-md-7">
+			Viaje: {{viaje.ruta}}
+
+			<form id = 'formulario' method = 'post' action = ''> 
+				{% csrf_token %}
+				{{formulario.as_p}}
+				<p><input class="btn btn-primary" type = 'submit' value = 'Confirmar'/></p>
+			</form>
+		</div>
+		<div class="col-md-5">
+			<img class="featurette-image img-responsive img-thumbnail" src="{{MEDIA_URL}}{{ viaje.ruta.origen.imagen }}" alt="Generic placeholder image" width="300px" heigth="150px">
+        	<img class="featurette-image img-responsive img-thumbnail" src="{{MEDIA_URL}}{{ viaje.ruta.destino.imagen }}" alt="Generic placeholder image" width="300px" heigth="150px">
+        </div>
+    </div>
+
+{%endblock%}

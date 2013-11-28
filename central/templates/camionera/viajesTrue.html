@@ -1,0 +1,33 @@
+{% extends 'home/base.html'%}
+{%block titulo%}Ciudades{%endblock%}
+{%block contenido%}
+ 
+	<h1>Viajes</h1>
+		{% for item in viajes %}
+	<!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">{{item.ruta}} <span class="text-muted"><h4><p>Choferes: {{item.chofer1}}</p><p>Asistente:{{item.asistente}}</h4></span></h2>
+          <p class="lead">
+          	Salida:{{item.fechaSalida}}
+          	
+          	<p>Con paradas en:</p>
+          	{%for item2 in paradas%}
+          		<li>{{item2.parada}}</li>
+          	{% endfor %}
+
+			<br>
+          	<p><input class = "btn btn-primary"  onclick=location.href='/reservarViaje/{{item.id}}/' value = "Reservar" type = "submit"  /></p>
+
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img class="featurette-image img-responsive img-thumbnail" src="{{MEDIA_URL}}{{ item.ruta.origen.imagen }}" alt="Generic placeholder image" width="300px" heigth="150px">
+          <img class="featurette-image img-responsive img-thumbnail" src="{{MEDIA_URL}}{{ item.ruta.destino.imagen }}" alt="Generic placeholder image" width="300px" heigth="150px">
+        </div>
+      </div>
+      <hr class="featurette-divider">
+      {% endfor %}
+{%endblock%}

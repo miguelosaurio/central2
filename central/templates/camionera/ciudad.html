@@ -1,0 +1,12 @@
+{% extends 'home/base.html'%}
+{%block titulo%}Ciudades{%endblock%}
+{%block contenido%}
+ 
+	<h1>Ciudades</h1>
+		{% for item in ciudades %}
+		<p>{{item.nombre}}</p>
+		<p>{{item.estado}}</p>
+			
+		<img src="{{MEDIA_URL}}{{ item.imagen }}" width="150px" heigth="150px"/>
+		{% endfor %}
+{%endblock%}

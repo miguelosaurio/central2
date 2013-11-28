@@ -1,0 +1,11 @@
+{% extends 'home/base.html'%}
+{%block titulo%}Abordar{%endblock%}
+{%block contenido%}
+ 
+	<h1>Confirmar Reservación</h1>
+	<form id = 'formulario' method = 'post' action = ''> 
+		{% csrf_token %}
+		{{formulario.as_p}}
+		<p><input class="btn btn-primary" type = 'submit' value = 'Confirmar'/></p>
+	</form>
+{%endblock%}
